@@ -1,0 +1,40 @@
+﻿<body data-ng-app="APIModule">
+<div ng-controller="APIController">
+    <table class="files table-bordered">
+        <thead>
+            <tr>
+                <th>Less 10 Mb</th>
+                <th>10Mb-50Mb</th>
+                <th>More 100Mb</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{files.First}}</td>
+            <td>{{files.Second}}</td>
+            <td>{{files.Third}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="form-group">
+        <label for="path">Current path:</label>
+        <input type="text" class="enterPath form-control" id="path" placeholder="Input path" required data-ng-model="path"/>
+        <button type="button" class="btn btn-default" data-ng-click="getData();">Get Items</button>
+    </div>
+    <div class="message" hidden="hidden">
+        <span>Files and directories are counting...</span>
+    </div>
+    <div class="warning" hidden="hidden">
+        <span>{{files.Warning}}</span>
+    </div>
+    <ul data-ng-repeat="file in files.Names">
+        <li>{{file}}</li>
+    </ul>
+</div>
+</body>
+
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/angular-route.js"></script>
+<script src="~/Scripts/APIScripts/Module.js"></script>
+<script src="~/Scripts/APIScripts/Service.js"></script>
+<script src="~/Scripts/APIScripts/Controller.js"></script>
